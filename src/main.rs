@@ -6,6 +6,8 @@ mod execution;
 mod compilation;
 mod util;
 mod instructions;
+mod lexical_parsing;
+mod file_util;
 
 fn main() {
     let mut heap = HeapMemory::new(32);

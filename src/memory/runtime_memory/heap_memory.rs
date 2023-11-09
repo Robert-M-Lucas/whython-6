@@ -1,5 +1,6 @@
 use std::fs;
 use std::io::Write;
+use crate::util::dump_bytes;
 
 pub struct HeapMemory {
     data: Vec<u8>,
@@ -39,6 +40,10 @@ impl HeapMemory {
             .open("heap_usage.txt").unwrap().write_all(output_string.as_bytes());
     }
 
+    pub fn dump_memory(&self) {
+        dump_bytes("heap.b", &self.data);
+    }
+    
     fn find_free(&self, size: usize) -> usize {
         // Look for unallocated area of size + 2 (last bit is to indicate end of allocated area - prev and cur)
         let mut free: usize = 0;
@@ -89,5 +94,9 @@ impl HeapMemory {
 
     pub fn get_location(&self, location: usize) -> &[u8] {
         &self.data[location..]
+    }
+
+    pub fn get_location_mut(&mut self, location: usize) -> &mut [u8] {
+        &mut self.data[location..]
     }
 }

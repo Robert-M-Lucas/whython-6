@@ -8,3 +8,5 @@ edition = "2021"
 [dependencies]
 either = "1.9.0"
 num-format = "0.4.4"
+strum = "0.25.0"
+strum_macros = "0.25.3"

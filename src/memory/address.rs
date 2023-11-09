@@ -1,4 +1,3 @@
-use std::mem;
 use either::{Either, Left, Right};
 use crate::memory::address::Address::{HeapDirect, HeapIndirect, Immediate, ProgramDirect, ProgramIndirect, StackDirect, StackIndirect};
 use crate::memory::runtime_memory::RuntimeMemory;
