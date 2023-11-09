@@ -5,18 +5,18 @@ mod error;
 mod execution;
 mod compilation;
 mod util;
+mod instructions;
 
 fn main() {
-    let mut heap = HeapMemory::new(12);
-    let mut addresses = Vec::new();
+    let mut heap = HeapMemory::new(32);
 
-    for i in 0..3 {
-        addresses.push(heap.allocate(3));
-    }
+    heap.allocate(2);
 
-    heap.free(addresses[1]);
+    heap.allocate(10);
 
-    addresses.push(heap.allocate(3));
+    heap.free(1);
+
+    heap.allocate(2);
 
     heap.dump_usage();
 }

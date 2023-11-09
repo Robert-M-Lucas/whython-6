@@ -68,10 +68,7 @@ impl HeapMemory {
             let byte = a / 8;
             let bit: u8 = (a % 8) as u8;
 
-            println!("{:#b}", 1 << bit);
             self.usage[byte] |= 1 << bit;
-            println!("{:#b}", self.usage[byte]);
-            println!("-");
         }
 
         address
@@ -91,6 +88,6 @@ impl HeapMemory {
     }
 
     pub fn get_location(&self, location: usize) -> &[u8] {
-        todo!()
+        &self.data[location..]
     }
 }
