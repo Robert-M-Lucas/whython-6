@@ -1,3 +1,5 @@
+pub(crate) mod ref_or_box;
+
 use std::{fs, mem};
 use std::io::Write;
 
